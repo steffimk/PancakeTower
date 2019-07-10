@@ -26,4 +26,14 @@ public class PlateController : MonoBehaviour
         rigidbody2D.AddForce(movement * speed);
 
     }
+
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if(collider2D.gameObject.name == "WallLeft" || collider2D.gameObject.name == "WallRight")
+        {
+            rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+            Debug.Log("Baaaaam");
+        }
+
+    }
 }
