@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 1669924061}
   - component: {fileID: 1669924063}
   - component: {fileID: 1669924064}
+  - component: {fileID: 1669924065}
   m_Layer: 5
   m_Name: plate
   m_TagString: Untagged
@@ -238,6 +239,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06285663, y: -0.25325772}
   m_Size: {x: 6.0528855, y: 0.6483914}
   m_Direction: 1
+--- !u!114 &1669924065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669924060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ef7c886de6b604d8ca1c9009debdc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &1895832434
 GameObject:
   m_ObjectHideFlags: 0
