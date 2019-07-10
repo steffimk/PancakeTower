@@ -561,3 +561,4 @@ MonoBehaviour:
   pancakePrefab: {fileID: 279005389266545070, guid: b1579fc8ce1394e669988dbd80a6bf06,
     type: 3}
   pancakeSpawnVelocity: 2
+  pancakeIndex: 0
