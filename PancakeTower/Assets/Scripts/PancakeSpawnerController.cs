@@ -9,18 +9,22 @@ public class PancakeSpawnerController : MonoBehaviour
     private Vector2 screenBounds;
     private float timer;
     public float pancakeSpawnVelocity;
+    public int pancakeIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0.0f;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        SpawnPancake();
+        SpawnPancake(this.pancakeIndex);
+        this.pancakeIndex++;
+
     }
 
-    void SpawnPancake()
+    void SpawnPancake(int index)
     {
         GameObject pancakeInstance = Instantiate(pancakePrefab) as GameObject;
         pancakeInstance.GetComponent<Rigidbody2D>().gravityScale = 1;
+        pancakeInstance.name = "Pfannkuchen";
         int random = new System.Random().Next(15, 20);
         pancakeInstance.GetComponent<Transform>().localScale = new Vector3(random * 0.01f, -0.15f, 0);
         float spawnX = UnityEngine.Random.Range(-screenBounds.x, screenBounds.x);
@@ -33,7 +37,9 @@ public class PancakeSpawnerController : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > pancakeSpawnVelocity)
         {
-            this.SpawnPancake();
+            
+            this.SpawnPancake(this.pancakeIndex);
+            this.pancakeIndex++;
             timer = 0;
         }
     }

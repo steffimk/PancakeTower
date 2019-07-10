@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlateController : MonoBehaviour
 {
 
-    Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidbody2D;
+    private Transform trans;
     public float speed;
+    public static bool plateHit = false;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        trans = GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -22,8 +26,9 @@ public class PlateController : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal, 0f);
-        rigidbody2D.AddForce(movement * speed);
+        Vector3 movement = new Vector3(moveHorizontal, 0f,0f);
+        //rigidbody2D.AddForce(movement * speed);
+        trans.position += movement * speed;
 
     }
 
@@ -32,8 +37,14 @@ public class PlateController : MonoBehaviour
         if(collider2D.gameObject.name == "WallLeft" || collider2D.gameObject.name == "WallRight")
         {
             rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
-            Debug.Log("Baaaaam");
         }
+        else
+        {
+            Debug.Log("plateHit");
+
+            plateHit = true;
+        }
+        //Debug.Log("Baaaaam");
 
     }
 }
